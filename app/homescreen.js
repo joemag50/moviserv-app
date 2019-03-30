@@ -1,9 +1,12 @@
 import React from 'react';
 import { StyleSheet, Image, KeyboardAvoidingView } from 'react-native';
+import { DrawerActions } from 'react-navigation-drawer';
+
 
 class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.props.navigation.dispatch(DrawerActions.toggleDrawer())
   }
 
   render() {

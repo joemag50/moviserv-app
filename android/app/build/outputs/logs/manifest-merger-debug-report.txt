@@ -1,0 +1,153 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [com.facebook.react:react-native:0.20.1] /home/jose/.gradle/caches/transforms-1/files-1.1/react-native-0.20.1.aar/ece4710b1aeadb615eee6d55698ceec9/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/e2b1549b855a626b27124e69bc0122eb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:23.0.1] /home/jose/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-23.0.1.aar/fef6176361ec547be2fe3bafdf2187b6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/286f326096a18e0653bdceafc81c6b53/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/959d4cbe8ed7d1da9e68f21c8c16850a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/23d3e92c51df6dcb6693bc4b6e59afea/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/262f7c9475f2fabe77f9b3310516d5e3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/a1f13f307e08a6559bb16cccc596896a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/d6779f3de7bc051ae663156759d926a0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/fresco-0.8.1.aar/bbe0b1430654f7ed2aeeb8f23e85a444/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp-0.8.1.aar/69a7cb619e9b98d057d69e6f2939c695/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/imagepipeline-0.8.1.aar/1e642dec4c31184ffbbd7f61ea574eb5/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/drawee-0.8.1.aar/b79b1cbfc307cdd298c3aab278356b49/AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:support-v4:23.0.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/74bea67990919fe5729bb62d6aa9dd5d/AndroidManifest.xml:17:1-24:12
+MERGED from [org.webkit:android-jsc:r174650] /home/jose/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/447b2b3f79c4e403ae79c5cbced9e81c/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:fbcore:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/fbcore-0.8.1.aar/b0877d7d6bfb4bb2f807c1bb5f9dff02/AndroidManifest.xml:2:1-9:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/6ae925f708c492d49c448696f32e969b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/2aec7919e088511ff844b5e7fa7ee7bb/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/95fccb9a23c6ca055d941dd6c275a626/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7bf5e55bda556b893217d02014ca29e4/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+	package
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:2:5-39
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.20.1] /home/jose/.gradle/caches/transforms-1/files-1.1/react-native-0.20.1.aar/ece4710b1aeadb615eee6d55698ceec9/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.20.1] /home/jose/.gradle/caches/transforms-1/files-1.1/react-native-0.20.1.aar/ece4710b1aeadb615eee6d55698ceec9/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:5:22-75
+application
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:7:5-24:19
+MERGED from [com.facebook.react:react-native:0.20.1] /home/jose/.gradle/caches/transforms-1/files-1.1/react-native-0.20.1.aar/ece4710b1aeadb615eee6d55698ceec9/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.20.1] /home/jose/.gradle/caches/transforms-1/files-1.1/react-native-0.20.1.aar/ece4710b1aeadb615eee6d55698ceec9/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/74bea67990919fe5729bb62d6aa9dd5d/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/74bea67990919fe5729bb62d6aa9dd5d/AndroidManifest.xml:22:5-20
+MERGED from [org.webkit:android-jsc:r174650] /home/jose/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/447b2b3f79c4e403ae79c5cbced9e81c/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /home/jose/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/447b2b3f79c4e403ae79c5cbced9e81c/AndroidManifest.xml:2:3-17
+	android:label
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:9:7-39
+	android:icon
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:10:7-41
+	android:allowBackup
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:12:7-38
+	android:name
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:8:7-38
+activity#com.emptyprojecttemplate.MainActivity
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:13:7-22:18
+	android:label
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:15:9-41
+	android:windowSoftInputMode
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:17:9-51
+	android:configChanges
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:16:9-79
+	android:name
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:18:9-21:25
+action#android.intent.action.MAIN
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:19:13-65
+	android:name
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:19:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:20:13-73
+	android:name
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:20:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:23:7-84
+	android:name
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:23:17-81
+uses-sdk
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+MERGED from [com.facebook.react:react-native:0.20.1] /home/jose/.gradle/caches/transforms-1/files-1.1/react-native-0.20.1.aar/ece4710b1aeadb615eee6d55698ceec9/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.20.1] /home/jose/.gradle/caches/transforms-1/files-1.1/react-native-0.20.1.aar/ece4710b1aeadb615eee6d55698ceec9/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/e2b1549b855a626b27124e69bc0122eb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/e2b1549b855a626b27124e69bc0122eb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:23.0.1] /home/jose/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-23.0.1.aar/fef6176361ec547be2fe3bafdf2187b6/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.0.1] /home/jose/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-23.0.1.aar/fef6176361ec547be2fe3bafdf2187b6/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-fragment:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/286f326096a18e0653bdceafc81c6b53/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/286f326096a18e0653bdceafc81c6b53/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/959d4cbe8ed7d1da9e68f21c8c16850a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/959d4cbe8ed7d1da9e68f21c8c16850a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/23d3e92c51df6dcb6693bc4b6e59afea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/23d3e92c51df6dcb6693bc4b6e59afea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/262f7c9475f2fabe77f9b3310516d5e3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/262f7c9475f2fabe77f9b3310516d5e3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/a1f13f307e08a6559bb16cccc596896a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/a1f13f307e08a6559bb16cccc596896a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/d6779f3de7bc051ae663156759d926a0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/d6779f3de7bc051ae663156759d926a0/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/fresco-0.8.1.aar/bbe0b1430654f7ed2aeeb8f23e85a444/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/fresco-0.8.1.aar/bbe0b1430654f7ed2aeeb8f23e85a444/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp-0.8.1.aar/69a7cb619e9b98d057d69e6f2939c695/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp-0.8.1.aar/69a7cb619e9b98d057d69e6f2939c695/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/imagepipeline-0.8.1.aar/1e642dec4c31184ffbbd7f61ea574eb5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/imagepipeline-0.8.1.aar/1e642dec4c31184ffbbd7f61ea574eb5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/drawee-0.8.1.aar/b79b1cbfc307cdd298c3aab278356b49/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/drawee-0.8.1.aar/b79b1cbfc307cdd298c3aab278356b49/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:23.0.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/74bea67990919fe5729bb62d6aa9dd5d/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /home/jose/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/74bea67990919fe5729bb62d6aa9dd5d/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.fresco:fbcore:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/fbcore-0.8.1.aar/b0877d7d6bfb4bb2f807c1bb5f9dff02/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:0.8.1] /home/jose/.gradle/caches/transforms-1/files-1.1/fbcore-0.8.1.aar/b0877d7d6bfb4bb2f807c1bb5f9dff02/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/6ae925f708c492d49c448696f32e969b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/6ae925f708c492d49c448696f32e969b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/2aec7919e088511ff844b5e7fa7ee7bb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/2aec7919e088511ff844b5e7fa7ee7bb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/95fccb9a23c6ca055d941dd6c275a626/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/95fccb9a23c6ca055d941dd6c275a626/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7bf5e55bda556b893217d02014ca29e4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/jose/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7bf5e55bda556b893217d02014ca29e4/AndroidManifest.xml:20:5-44
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /home/jose/proyectos/DispMovil/moviserv-app/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

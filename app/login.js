@@ -3,6 +3,8 @@ import { StyleSheet, Text,
          View, Image, TextInput,
          KeyboardAvoidingView, Button } from 'react-native';
 
+global.URL = 'https://moviserv-web.herokuapp.com/';
+
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -13,8 +15,8 @@ class LoginScreen extends React.Component {
   }
 
   validate = () => {
-    this.props.navigation.navigate('Menu');
-    return;
+    //this.props.navigation.navigate('Menu');
+    //return;
     
     const { email, password }  = this.state ;
     if (email.length == 0) {
@@ -26,16 +28,28 @@ class LoginScreen extends React.Component {
       return;
     }
     //Consulta
-    //Redireccion al menu
 
-    if (email == "greengamboa@gmail.com" && password == "Joemag50") {
-      this.props.navigation.navigate('Menu');
-      return;
-    }
-    else {
-      alert("No existe el correo.");
-      return;
-    }
+    URL_token = URL + 'login/?user[email]=' + email +
+                            '&user[password]=' + password;
+    fetch(URL_token, {
+      method: 'GET',
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .then((response) => {
+      if (response.result)
+      {
+        global.email = email;
+        global.password = password;
+
+        this.props.navigation.navigate('Menu');
+      } else {
+        alert("Correo o contraseña incorrectos");
+      }
+    })
+    .catch(error => console.log('fallo la sesion') );
+    return;
   }
 
   render() {

@@ -27,7 +27,7 @@ const AppDrawerNavigation = createDrawerNavigator({
   Disk: MonitorDisk,
   Tasks: MonitorTasks,
   Settings: Settings,
-});
+}, { drawerType: "back"});
 
 const styles = StyleSheet.create({
   container: {
