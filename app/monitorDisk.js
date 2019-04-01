@@ -2,19 +2,22 @@ import React from 'react';
 import { StyleSheet, Image,
          KeyboardAvoidingView,
          Text, View, Button } from 'react-native';
+import DiskText from './disk-text';
 
 class MonitorDisk extends React.Component {
   constructor(props) {
     super(props);
     this.getDiskInfo();
     this.state = {
-      available: '',
-      used: ''
+      disks: []
     };
   }
 
   getDiskInfo = () => {
-    fetch(URL + 'disk', {
+    URL_token = URL + '/api/disk/?user[email]=' + email +
+                            '&user[password]=' + password + 
+                             '&server[user_id]=' + id;
+    fetch(URL_token, {
       method: 'GET',
       headers:{
         'Content-Type': 'application/json'
@@ -23,8 +26,7 @@ class MonitorDisk extends React.Component {
     .then((response) => {
       if (response.result)
       {
-        this.setState({available: response.object.avalible})
-        this.setState({used: response.object.used})
+        this.setState({ disks: response.object })
       } else {
 
       }
@@ -33,27 +35,21 @@ class MonitorDisk extends React.Component {
   }
 
   render() {
+    var itemList = [];
+
+    this.state.disks.forEach(function (object) {
+      itemList.push(
+        <DiskText name={ object.name }
+                 total={ object.total }
+                 available={ object.avalible }
+                 unused={ object.unused } >
+        </DiskText>
+      );
+    }.bind(this));
+
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" >
-        <View style={styles.top}>
-          <Text style={styles.text} >
-            Disk
-          </Text>
-        </View>
-        <View >
-          <Text style={styles.text} >
-            Available: { this.state.available }
-          </Text>
-        </View>
-        <View >
-          <Text style={styles.text} >
-            Used: { this.state.used }
-          </Text>
-        </View>
-        <View style={styles.button} >
-          <Button onPress={this.getDiskInfo} title="Get Disk Info" color="#846997ff"
-            accessibilityLabel="" />
-        </View>
+        {itemList}
         <View style={styles.bottom}>
           <Image style={styles.image} source={require('../assets/logo.jpeg')} />
         </View>

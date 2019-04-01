@@ -2,19 +2,22 @@ import React from 'react';
 import { StyleSheet, Image,
          KeyboardAvoidingView,
          Text, View, Button } from 'react-native';
+import RamText from './ram-text';
 
 class MonitorRam extends React.Component {
   constructor(props) {
     super(props);
     this.getRamInfo();
     this.state = {
-      available: '',
-      used: ''
+      rams: []
     };
   }
 
   getRamInfo = () => {
-    fetch(URL + 'ram', {
+    URL_token = URL + '/api/ram/?user[email]=' + email +
+                            '&user[password]=' + password + 
+                             '&server[user_id]=' + id;
+    fetch(URL_token, {
       method: 'GET',
       headers:{
         'Content-Type': 'application/json'
@@ -23,8 +26,7 @@ class MonitorRam extends React.Component {
     .then((response) => {
       if (response.result)
       {
-        this.setState({available: response.object.avalible})
-        this.setState({used: response.object.used})
+        this.setState({ rams: response.object })
       } else {
 
       }
@@ -33,27 +35,20 @@ class MonitorRam extends React.Component {
   }
 
   render() {
+    var itemList = [];
+
+    this.state.rams.forEach(function (object) {
+      itemList.push(
+        <RamText name={ object.name }
+                 total={ object.total }
+                 available={ object.avalible }
+                 unused={ object.unused } >
+        </RamText>
+      );
+    }.bind(this));
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" >
-        <View style={styles.top}>
-          <Text style={styles.text} >
-            Ram
-          </Text>
-        </View>
-        <View >
-          <Text style={styles.text} >
-            Available: { this.state.available }
-          </Text>
-        </View>
-        <View >
-          <Text style={styles.text} >
-            Used: { this.state.used }
-          </Text>
-        </View>
-        <View style={styles.button} >
-          <Button onPress={this.getRamInfo} title="Get Ram Info" color="#846997ff"
-            accessibilityLabel="" />
-        </View>
+        {itemList}
         <View style={styles.bottom}>
           <Image style={styles.image} source={require('../assets/logo.jpeg')} />
         </View>

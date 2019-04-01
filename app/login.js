@@ -3,6 +3,8 @@ import { StyleSheet, Text,
          View, Image, TextInput,
          KeyboardAvoidingView, Button } from 'react-native';
 
+//https://moviserv-web.herokuapp.com/api/ram?user[email]=greengamboa@gmail.com&user[password]=123456&server[user_id]=1
+
 global.URL = 'https://moviserv-web.herokuapp.com/';
 
 class LoginScreen extends React.Component {
@@ -29,7 +31,7 @@ class LoginScreen extends React.Component {
     }
     //Consulta
 
-    URL_token = URL + 'login/?user[email]=' + email +
+    URL_token = URL + '/api/login/?user[email]=' + email +
                             '&user[password]=' + password;
     fetch(URL_token, {
       method: 'GET',
@@ -42,6 +44,7 @@ class LoginScreen extends React.Component {
       {
         global.email = email;
         global.password = password;
+        global.id = response.object.id;
 
         this.props.navigation.navigate('Menu');
       } else {
