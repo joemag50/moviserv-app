@@ -1,16 +1,23 @@
 import React from 'react';
 import { StyleSheet, Image,
-         KeyboardAvoidingView,
+         ScrollView,
          Text, View, Button } from 'react-native';
 import RamText from './ram-text';
 
 class MonitorRam extends React.Component {
   constructor(props) {
     super(props);
-    this.getRamInfo();
     this.state = {
       rams: []
     };
+  }
+
+  componentDidUpdate() {
+    this.getRamInfo();
+  }
+
+  componentDidMount() {
+    this.getRamInfo();
   }
 
   getRamInfo = () => {
@@ -39,29 +46,37 @@ class MonitorRam extends React.Component {
 
     this.state.rams.forEach(function (object) {
       itemList.push(
-        <RamText name={ object.name }
-                 total={ object.total }
-                 available={ object.avalible }
-                 unused={ object.unused } >
-        </RamText>
+          <RamText name={ object.name }
+                   total={ object.total }
+                   available={ object.avalible }
+                   unused={ object.unused }
+                   key={object.name} >
+          </RamText>
       );
     }.bind(this));
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding" >
-        {itemList}
+      <View style={styles.container}>
+        <View style={styles.top} >
+          <ScrollView style={styles.scrollcontainer} >
+            {itemList}
+          </ScrollView>
+        </View>
         <View style={styles.bottom}>
           <Image style={styles.image} source={require('../assets/logo.jpeg')} />
         </View>
-      </KeyboardAvoidingView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  scrollcontainer: {
+    flex: 1,
+    backgroundColor: '#4b69a7ff',
+  },
   container: {
     flex: 1,
     backgroundColor: '#4b69a7ff',
-    alignItems: 'center',
     justifyContent: 'center',
   },
   bottom: {
@@ -74,9 +89,8 @@ const styles = StyleSheet.create({
   },
   top: {
     width: '100%', 
-    height: 50, 
+    height: '90%', 
     justifyContent: 'center', 
-    alignItems: 'center',
     position: 'absolute',
     top: 30
   },
@@ -92,7 +106,7 @@ const styles = StyleSheet.create({
   button: {
     marginVertical: 5,
     width: '90%',
-  }
+  },
 });
 
 export default MonitorRam

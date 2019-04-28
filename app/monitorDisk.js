@@ -1,16 +1,23 @@
 import React from 'react';
 import { StyleSheet, Image,
-         KeyboardAvoidingView,
+         ScrollView,
          Text, View, Button } from 'react-native';
 import DiskText from './disk-text';
 
 class MonitorDisk extends React.Component {
   constructor(props) {
     super(props);
-    this.getDiskInfo();
     this.state = {
       disks: []
     };
+  }
+
+  componentDidUpdate() {
+    this.getDiskInfo();
+  }
+
+  componentDidMount() {
+    this.getDiskInfo();
   }
 
   getDiskInfo = () => {
@@ -42,27 +49,35 @@ class MonitorDisk extends React.Component {
         <DiskText name={ object.name }
                  total={ object.total }
                  available={ object.avalible }
-                 unused={ object.unused } >
+                 unused={ object.unused }
+                 key={object.name} >
         </DiskText>
       );
     }.bind(this));
 
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding" >
-        {itemList}
+      <View style={styles.container}>
+        <View style={styles.top} >
+          <ScrollView style={styles.scrollcontainer} >
+            {itemList}
+          </ScrollView>
+        </View>
         <View style={styles.bottom}>
           <Image style={styles.image} source={require('../assets/logo.jpeg')} />
         </View>
-      </KeyboardAvoidingView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  scrollcontainer: {
+    flex: 1,
+    backgroundColor: '#4b69a7ff',
+  },
   container: {
     flex: 1,
     backgroundColor: '#4b69a7ff',
-    alignItems: 'center',
     justifyContent: 'center',
   },
   bottom: {
@@ -75,9 +90,8 @@ const styles = StyleSheet.create({
   },
   top: {
     width: '100%', 
-    height: 50, 
+    height: '90%', 
     justifyContent: 'center', 
-    alignItems: 'center',
     position: 'absolute',
     top: 30
   },
@@ -93,7 +107,7 @@ const styles = StyleSheet.create({
   button: {
     marginVertical: 5,
     width: '90%',
-  }
+  },
 });
 
 export default MonitorDisk

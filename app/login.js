@@ -61,7 +61,8 @@ class LoginScreen extends React.Component {
         <Image style={styles.image} source={require('../assets/logo.jpeg')} />
         <TextInput placeholder="Email" style={styles.input}
                    onChangeText={(email) => this.setState({email})}
-                   value={this.state.email} />
+                   value={this.state.email}
+                   keyboardType="email-address"/>
         <TextInput placeholder="Password" style={styles.input}
                    onChangeText={(password) => this.setState({password})}
                    value={this.state.password} secureTextEntry={true} />

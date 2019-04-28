@@ -26,6 +26,13 @@ class RamText extends React.Component {
           Unused: { this.props.unused }
         </Text>
       </View>
+      <View
+        style={{
+          borderBottomColor: 'black',
+          borderBottomWidth: 1,
+          width: '100%',
+        }}
+      />
     </View>
     );
   }
@@ -33,7 +40,7 @@ class RamText extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 5,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -59,7 +66,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#FFF',
-    paddingTop: 35,
+    padding: 12,
     fontSize: 18,
   },
   button: {

@@ -1,25 +1,27 @@
 import React from 'react';
-import { StyleSheet, Image, Text, View, ScrollView, Button } from 'react-native';
-import TableTask from './table-task';
+import { StyleSheet, Image,
+         ScrollView,
+         Text, View, Button } from 'react-native';
+import DiskText from './disk-text';
 
-class MonitorTasks extends React.Component {
+class MonitorDataBase extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tables: []
-    }
+      disks: []
+    };
   }
 
   componentDidUpdate() {
-    this.getTableInfo();
+    this.getDiskInfo();
   }
 
   componentDidMount() {
-    this.getTableInfo();
+    this.getDiskInfo();
   }
 
-  getTableInfo = () => {
-    URL_token = URL + '/api/tasks/?user[email]=' + email +
+  getDiskInfo = () => {
+    URL_token = URL + '/api/disk/?user[email]=' + email +
                             '&user[password]=' + password + 
                              '&server[user_id]=' + id;
     fetch(URL_token, {
@@ -31,7 +33,7 @@ class MonitorTasks extends React.Component {
     .then((response) => {
       if (response.result)
       {
-        this.setState({ tables: response.object })
+        this.setState({ disks: response.object })
       } else {
 
       }
@@ -41,15 +43,15 @@ class MonitorTasks extends React.Component {
 
   render() {
     var itemList = [];
-    const state = this.state;
 
-    this.state.tables.forEach(function (object) {
+    this.state.disks.forEach(function (object) {
       itemList.push(
-        <TableTask tableHead={object.tableHead}
-                   tableData={object.tableData}
-                   key={object.name}
-                   server_id={object.server_id} >
-        </TableTask>
+        <DiskText name={ object.name }
+                 total={ object.total }
+                 available={ object.avalible }
+                 unused={ object.unused }
+                 key={object.name} >
+        </DiskText>
       );
     }.bind(this));
 
@@ -62,12 +64,6 @@ class MonitorTasks extends React.Component {
         </View>
         <View style={styles.bottom}>
           <Image style={styles.image} source={require('../assets/logo.jpeg')} />
-        </View>
-        <View style={styles.bottom2}>
-          <Button onPress={this.getTableInfo}
-                  title="Actualizar"
-                  color="#841584" >
-          </Button>
         </View>
       </View>
     );
@@ -89,14 +85,6 @@ const styles = StyleSheet.create({
     height: 50, 
     justifyContent: 'center', 
     alignItems: 'flex-start',
-    position: 'absolute',
-    bottom: 0
-  },
-  bottom2: {
-    width: '100%', 
-    height: 50, 
-    justifyContent: 'center', 
-    alignItems: 'flex-end',
     position: 'absolute',
     bottom: 0
   },
@@ -122,4 +110,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MonitorTasks
+export default MonitorDataBase

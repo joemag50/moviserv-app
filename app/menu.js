@@ -6,6 +6,8 @@ import { createDrawerNavigator, createAppContainer } from 'react-navigation';
 import MonitorRam from './monitorRam'
 import MonitorDisk from './monitorDisk'
 import MonitorTasks from './monitorTasks'
+import MonitorReboot from './monitorReboot'
+import MonitorDataBase from './monitorDataBase'
 import HomeScreen from './homescreen'
 import Settings from './settings'
 
@@ -21,13 +23,20 @@ class MenuScreen extends React.Component {
   }
 }
 
+const DrawerNavigatorConfig = {
+  drawerType: "back",
+  useNativeAnimations: false,
+};
+
 const AppDrawerNavigation = createDrawerNavigator({
   Home: HomeScreen,
   Ram: MonitorRam,
   Disk: MonitorDisk,
   Tasks: MonitorTasks,
+  Reboot: MonitorReboot,
+  DataBases: MonitorDataBase,
   Settings: Settings,
-}, { drawerType: "back"});
+}, DrawerNavigatorConfig);
 
 const styles = StyleSheet.create({
   container: {
