@@ -8,8 +8,10 @@ import MonitorDisk from './monitorDisk'
 import MonitorTasks from './monitorTasks'
 import MonitorReboot from './monitorReboot'
 import MonitorDataBase from './monitorDataBase'
+import CreateServer from './createServer'
 import HomeScreen from './homescreen'
 import Settings from './settings'
+import ChatMenu from './chatMenu'
 
 class MenuScreen extends React.Component {
   constructor(props) {
@@ -30,6 +32,8 @@ const DrawerNavigatorConfig = {
 
 const AppDrawerNavigation = createDrawerNavigator({
   Home: HomeScreen,
+  ChatMenu: ChatMenu,
+  CreateServer: CreateServer,
   Ram: MonitorRam,
   Disk: MonitorDisk,
   Tasks: MonitorTasks,

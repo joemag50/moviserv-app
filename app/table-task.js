@@ -5,7 +5,7 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
 class TableTask extends React.Component {
 
   _alertIndex = (message, pid) => {
-    Alert.alert(`Process is ${message}`);
+    Alert.alert("Mensaje", `Process is ${message}`);
     URL_token = "";
 
     if (message == "Start") {
@@ -27,7 +27,8 @@ class TableTask extends React.Component {
       }
     }).then(res => res.json())
     .then((response) => {
-      Alert.alert(`Process finished: ${message}`);
+      Alert.alert("Mensaje", `Process finished: ${message}`);
+      this.props.onPress();
     })
     .catch(error => console.log('fallo la sesion') );
   }

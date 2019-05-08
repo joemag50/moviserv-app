@@ -7,43 +7,30 @@ import { StyleSheet,
          KeyboardAvoidingView,
          TouchableOpacity } from 'react-native';
 
-global.URL = 'https://moviserv-web.herokuapp.com/';
-
-global.palet1 = '#47B398'
-global.palet2 = '#748B91'
-global.palet3 = '#4B69A7'
-global.palet4 = '#706C91'
-global.palet5 = '#846997'
-
-global.white = '#FFFFFF'
-global.black = '#000000'
-
-class LoginScreen extends React.Component {
+class CreateServer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      server_name: '',
+      server_address: ''
     };
   }
 
-  validate = () => {
-    //this.props.navigation.navigate('Menu');
-    //return;
-    
-    const { email, password }  = this.state ;
-    if (email.length == 0) {
-      alert("Favor de colocar un email válido");
+  create_server_request = () => {
+    const { server_name, server_address }  = this.state ;
+    if (server_name.length == 0) {
+      alert("Favor de llenar el nombre");
       return;
     }
-    if (password.length == 0) {
-      alert("Favor de colocar la contraseña");
+    if (server_address.length == 0) {
+      alert("Favor de llenar la ruta");
       return;
     }
-    //Consulta
 
-    URL_token = URL + '/api/login/?user[email]=' + email +
-                            '&user[password]=' + password;
+    URL_token = URL + '/api/create_server/?user[email]=' + email +
+                            '&user[password]=' + password + 
+                            '&server[name]=' + server_name +
+                            '&server[address]=' + server_address;
     fetch(URL_token, {
       method: 'GET',
       headers:{
@@ -53,13 +40,9 @@ class LoginScreen extends React.Component {
     .then((response) => {
       if (response.result)
       {
-        global.email = email;
-        global.password = password;
-        global.id = response.object.id;
-
-        this.props.navigation.navigate('Menu');
+        alert("Servidor creado correctamente");
       } else {
-        alert("Correo o contraseña incorrectos");
+        alert("(Error)");
       }
     })
     .catch(error => console.log('fallo la sesion') );
@@ -70,25 +53,17 @@ class LoginScreen extends React.Component {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" >
         <Image style={styles.image} source={require('../assets/logo.jpeg')} />
-        <TextInput placeholder="Email" style={styles.input}
-                   onChangeText={(email) => this.setState({email})}
-                   value={this.state.email}
-                   keyboardType="email-address"/>
-        <TextInput placeholder="Password" style={styles.input}
-                   onChangeText={(password) => this.setState({password})}
-                   value={this.state.password} secureTextEntry={true} />
+        <TextInput placeholder="Nombre" style={styles.input}
+                   onChangeText={(server_name) => this.setState({server_name})}
+                   value={this.state.server_name} />
+        <TextInput placeholder="Ruta" style={styles.input}
+                   onChangeText={(server_address) => this.setState({server_address})}
+                   value={this.state.server_address} />
         <View style={styles.button_container} >
-          <TouchableOpacity onPress={this.validate}
+          <TouchableOpacity onPress={this.create_server_request}
                             style={styles.button}
             >
-          <Text style={styles.button_text}>Iniciar sesión</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.button_container_50} >
-          <TouchableOpacity onPress={() => { this.props.navigation.navigate('CreateAccount'); }}
-                            style={styles.button}
-            >
-          <Text style={styles.button_text_small}>Crear Cuenta</Text>
+          <Text style={styles.button_text}>Crear servidor</Text>
           </TouchableOpacity>
         </View>
         <View style={{ height: 60 }} />
@@ -145,4 +120,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginScreen
+export default CreateServer

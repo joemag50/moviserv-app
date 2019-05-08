@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Image, Text, View, ScrollView, Button } from 'react-native';
 import TableTask from './table-task';
+import Footer from './footer';
 
 class MonitorTasks extends React.Component {
   constructor(props) {
@@ -10,9 +11,9 @@ class MonitorTasks extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    this.getTableInfo();
-  }
+  //componentDidUpdate() {
+  //  this.getTableInfo();
+  //}
 
   componentDidMount() {
     this.getTableInfo();
@@ -47,6 +48,9 @@ class MonitorTasks extends React.Component {
       itemList.push(
         <TableTask tableHead={object.tableHead}
                    tableData={object.tableData}
+                   onPress={() => {
+                    this.getTableInfo();
+                   }}
                    key={object.name}
                    server_id={object.server_id} >
         </TableTask>
@@ -55,70 +59,67 @@ class MonitorTasks extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.top} >
-          <ScrollView style={styles.scrollcontainer} >
-            {itemList}
-          </ScrollView>
+        <View style={styles.top_container}>
+          <Text style={styles.button_text}>
+          Tasks
+          </Text>
         </View>
-        <View style={styles.bottom}>
-          <Image style={styles.image} source={require('../assets/logo.jpeg')} />
-        </View>
-        <View style={styles.bottom2}>
-          <Button onPress={this.getTableInfo}
-                  title="Actualizar"
-                  color="#841584" >
-          </Button>
-        </View>
+        <ScrollView style={styles.scrollcontainer} >
+          {itemList}
+        </ScrollView>
+        <Footer />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  scrollcontainer: {
-    flex: 1,
-    backgroundColor: '#4b69a7ff',
-  },
   container: {
     flex: 1,
     backgroundColor: '#4b69a7ff',
+    alignItems: 'center',
     justifyContent: 'center',
   },
-  bottom: {
-    width: '100%', 
-    height: 50, 
-    justifyContent: 'center', 
-    alignItems: 'flex-start',
-    position: 'absolute',
-    bottom: 0
+  top_container: {
+    width: '90%',
+    marginTop: 60,
   },
-  bottom2: {
-    width: '100%', 
-    height: 50, 
-    justifyContent: 'center', 
-    alignItems: 'flex-end',
-    position: 'absolute',
-    bottom: 0
-  },
-  top: {
-    width: '100%', 
-    height: '90%', 
-    justifyContent: 'center', 
-    position: 'absolute',
-    top: 30
+  scrollcontainer: {
+    backgroundColor: '#B6D0F288',
+    width: '90%',
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 60,
   },
   image: {
-    width: 100,
+    flex: 3,
+    width: 300,
     resizeMode: 'contain'
   },
-  text: {
-    color: '#FFF',
-    paddingTop: 35,
-    fontSize: 25,
+  button_container: {
+    marginVertical: 5,
+    width: '100%',
+    height: 50,
+  },
+  button_container_50: {
+    marginVertical: 5,
+    width: '60%',
+    height: 50,
   },
   button: {
-    marginVertical: 5,
-    width: '90%',
+    borderRadius: 20,
+    backgroundColor: palet2,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_text: {
+    color: white,
+    fontSize: 20,
+  },
+  button_text_small: {
+    color: white,
+    fontSize: 15,
   },
 });
 

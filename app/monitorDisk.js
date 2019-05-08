@@ -1,7 +1,10 @@
 import React from 'react';
-import { StyleSheet, Image,
+import { StyleSheet,
+         Image,
          ScrollView,
-         Text, View, Button } from 'react-native';
+         Text,
+         View } from 'react-native';
+import Footer from './footer';
 import DiskText from './disk-text';
 
 class MonitorDisk extends React.Component {
@@ -20,6 +23,10 @@ class MonitorDisk extends React.Component {
     this.getDiskInfo();
   }
 
+  componentWillUnmount() {
+    this.isUnmounted = true;
+  }
+
   getDiskInfo = () => {
     URL_token = URL + '/api/disk/?user[email]=' + email +
                             '&user[password]=' + password + 
@@ -31,6 +38,8 @@ class MonitorDisk extends React.Component {
       }
     }).then(res => res.json())
     .then((response) => {
+      if (this.isUnmounted) { return; }
+
       if (response.result)
       {
         this.setState({ disks: response.object })
@@ -57,56 +66,66 @@ class MonitorDisk extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.top} >
-          <ScrollView style={styles.scrollcontainer} >
-            {itemList}
-          </ScrollView>
+        <View style={styles.top_container}>
+          <Text style={styles.button_text}>
+          Disk
+          </Text>
         </View>
-        <View style={styles.bottom}>
-          <Image style={styles.image} source={require('../assets/logo.jpeg')} />
-        </View>
+        <ScrollView style={styles.scrollcontainer} >
+          {itemList}
+        </ScrollView>
+        <Footer />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  scrollcontainer: {
+container: {
     flex: 1,
     backgroundColor: '#4b69a7ff',
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#4b69a7ff',
+    alignItems: 'center',
     justifyContent: 'center',
   },
-  bottom: {
-    width: '100%', 
-    height: 50, 
-    justifyContent: 'center', 
-    alignItems: 'flex-start',
-    position: 'absolute',
-    bottom: 0
+  top_container: {
+    width: '90%',
+    marginTop: 60,
   },
-  top: {
-    width: '100%', 
-    height: '90%', 
-    justifyContent: 'center', 
-    position: 'absolute',
-    top: 30
+  scrollcontainer: {
+    width: '90%',
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 60,
   },
   image: {
-    width: 100,
+    flex: 3,
+    width: 300,
     resizeMode: 'contain'
   },
-  text: {
-    color: '#FFF',
-    paddingTop: 35,
-    fontSize: 25,
+  button_container: {
+    marginVertical: 5,
+    width: '100%',
+    height: 50,
+  },
+  button_container_50: {
+    marginVertical: 5,
+    width: '60%',
+    height: 50,
   },
   button: {
-    marginVertical: 5,
-    width: '90%',
+    borderRadius: 20,
+    backgroundColor: palet2,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_text: {
+    color: white,
+    fontSize: 20,
+  },
+  button_text_small: {
+    color: white,
+    fontSize: 15,
   },
 });
 

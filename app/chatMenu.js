@@ -1,57 +1,41 @@
 import React from 'react';
 import { StyleSheet,
          Image,
-         KeyboardAvoidingView,
+         ScrollView,
          Text,
          View,
-         TouchableOpacity,
-         ScrollView } from 'react-native';
+         TouchableOpacity } from 'react-native';
 import Footer from './footer';
 
-class MonitorReboot extends React.Component {
+class ChatMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      servers: [],
-    }
-    this.nameservers();
+      chats: []
+    };
+  }
+
+  componentDidUpdate() {
+    this.getChats();
   }
 
   componentDidMount() {
-    this.nameservers();
+    this.getChats();
   }
 
   componentWillUnmount() {
     this.isUnmounted = true;
   }
 
-  nameservers = () => {
-    URL_token = URL + '/api/servers/?user[email]=' + email +
-                            '&user[password]=' + password + 
-                             '&server[user_id]=' + id;
-    fetch(URL_token, {
-      method: 'GET',
-      headers:{
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json())
-    .then((response) => {
-      if (this.isUnmounted) { return; }
-
-      if (response.result)
-      {
-        this.setState({ servers: response.object })
-      } else {
-        
-      }
-    })
-    .catch(error => console.log('fallo la sesion') );
+  save_chat_mail = (partner_email, chat_id) => {
+    global.chat_id = chat_id;
+    global.chat_email = partner_email;
+    this.props.navigation.navigate('ChatConversation');
   }
 
-  reboot = (server_id) => {
-    URL_token = URL + '/api/reboot/?user[email]=' + email +
-                            '&user[password]=' + password + 
-                             '&reboot[server_id]=' + server_id;
+  getChats = () => {
+    URL_token = URL + '/api_chat/chats/?user[email]=' + email +
+                            '&user[password]=' + password ;
     fetch(URL_token, {
       method: 'GET',
       headers:{
@@ -59,42 +43,63 @@ class MonitorReboot extends React.Component {
       }
     }).then(res => res.json())
     .then((response) => {
+      if (this.isUnmounted) {
+        return;
+      }
+
       if (response.result)
       {
-        alert(response.object.message)
+        this.setState({ chats: response.object })
       } else {
-        
+
       }
     })
     .catch(error => console.log('fallo la sesion') );
+    return;
   }
 
   render() {
     var itemList = [];
 
-    this.state.servers.forEach(function (object) {
+    this.state.chats.forEach(function (object) {
       itemList.push(
-        <View style={styles.button_container} key={object.name} >
-          <TouchableOpacity onPress={() => { this.reboot(object.id) }}
+        <View style={styles.button_container} key={object.partner_email} >
+          <TouchableOpacity onPress={() => {
+              this.save_chat_mail(object.partner_email, object.chat_id)
+            }}
                             style={styles.button}
             >
-          <Text style={styles.button_text_small}>{object.name}</Text>
+          <Text style={styles.button_text}>{ object.partner_email }</Text>
           </TouchableOpacity>
         </View>
       );
     }.bind(this));
+
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding" >
+      <View style={styles.container}>
         <View style={styles.top_container}>
           <Text style={styles.button_text}>
-          Reboot Servers
+          Chats
           </Text>
         </View>
         <ScrollView style={styles.scrollcontainer} >
           {itemList}
         </ScrollView>
+
+        <View style={styles.bottom}>
+          <View style={styles.button_container_bottom} >
+            <TouchableOpacity onPress={() => {
+                              this.props.navigation.navigate('ChatNuevo');
+                              return;
+                            }}
+                              style={styles.button}
+              >
+            <Text style={styles.button_text_small}>Nuevo Chat</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
         <Footer />
-      </KeyboardAvoidingView>
+      </View>
     );
   }
 }
@@ -126,10 +131,19 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
   },
-  button_container_50: {
+  button_container_bottom: {
     marginVertical: 5,
-    width: '60%',
+    marginLeft: 60,
+    width: '30%',
     height: 50,
+  },
+  bottom: {
+    width: '100%', 
+    height: 50,
+    justifyContent: 'center', 
+    alignItems: 'flex-end',
+    position: 'absolute',
+    bottom: 0
   },
   button: {
     borderRadius: 20,
@@ -141,7 +155,6 @@ const styles = StyleSheet.create({
   button_text: {
     color: white,
     fontSize: 20,
-
   },
   button_text_small: {
     color: white,
@@ -149,4 +162,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MonitorReboot
+export default ChatMenu

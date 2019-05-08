@@ -1,35 +1,38 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 class DiskText extends React.Component {
 
   render() {
     return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.text} >
-          Disk - Servidor { this.props.name }
-        </Text>
+      <View style={styles.button_container} >
+        <TouchableOpacity style={styles.button_00}
+          >
+        <Text style={styles.button_text_big}>{ this.props.name }</Text>
+        </TouchableOpacity>
       </View>
-      <View >
-        <Text style={styles.text} >
-          Total: { this.props.total }
-        </Text>
+      <View style={styles.button_container} >
+        <TouchableOpacity style={styles.button_0}
+          >
+        <Text style={styles.button_text}>Total: { this.props.total }</Text>
+        </TouchableOpacity>
       </View>
-      <View >
-        <Text style={styles.text} >
-          Available: { this.props.available }
-        </Text>
+      <View style={styles.button_container} >
+        <TouchableOpacity style={styles.button_1}
+          >
+        <Text style={styles.button_text_small}>Available: { this.props.available }</Text>
+        </TouchableOpacity>
       </View>
-      <View >
-        <Text style={styles.text} >
-          Unused: { this.props.unused }
-        </Text>
+      <View style={styles.button_container} >
+        <TouchableOpacity style={styles.button_2}
+          >
+        <Text style={styles.button_text_small}>Unused: { this.props.unused }</Text>
+        </TouchableOpacity>
       </View>
       <View
         style={{
-          borderBottomColor: 'black',
-          borderBottomWidth: 1,
+          height: 20,
           width: '100%',
         }}
       />
@@ -40,39 +43,70 @@ class DiskText extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 5,
+    flex: 1,
+    backgroundColor: '#4b69a7ff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  bottom: {
-    width: '100%', 
-    height: 50, 
-    justifyContent: 'center', 
-    alignItems: 'flex-start',
-    position: 'absolute',
-    bottom: 0
+  top_container: {
+    width: '90%',
+    marginTop: 60,
   },
-  top: {
-    width: '100%', 
-    height: 50, 
-    justifyContent: 'center', 
-    alignItems: 'center',
-    position: 'absolute',
-    top: 30
+  scrollcontainer: {
+    width: '90%',
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 60,
   },
   image: {
-    width: 100,
+    flex: 3,
+    width: 300,
     resizeMode: 'contain'
   },
-  text: {
-    color: '#FFF',
-    padding: 12,
-    fontSize: 18,
+  button_container: {
+    width: '100%',
+    height: 50,
   },
-  button: {
-    marginVertical: 5,
-    width: '90%',
-  }
+  button_container_50: {
+    width: '60%',
+    height: 50,
+  },
+  button_00: {
+    backgroundColor: '#B6D0F2',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_0: {
+    backgroundColor: '#6DA7F2',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_1: {
+    backgroundColor: '#4B72A6',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_2: {
+    backgroundColor: '#344F73',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_text_big: {
+    color: white,
+    fontSize: 25,
+  },
+  button_text: {
+    color: white,
+    fontSize: 20,
+  },
+  button_text_small: {
+    color: white,
+    fontSize: 15,
+  },
 });
 
 export default DiskText

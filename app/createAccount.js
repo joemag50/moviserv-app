@@ -9,16 +9,7 @@ import { StyleSheet,
 
 global.URL = 'https://moviserv-web.herokuapp.com/';
 
-global.palet1 = '#47B398'
-global.palet2 = '#748B91'
-global.palet3 = '#4B69A7'
-global.palet4 = '#706C91'
-global.palet5 = '#846997'
-
-global.white = '#FFFFFF'
-global.black = '#000000'
-
-class LoginScreen extends React.Component {
+class CreateAccount extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,9 +19,6 @@ class LoginScreen extends React.Component {
   }
 
   validate = () => {
-    //this.props.navigation.navigate('Menu');
-    //return;
-    
     const { email, password }  = this.state ;
     if (email.length == 0) {
       alert("Favor de colocar un email válido");
@@ -40,9 +28,8 @@ class LoginScreen extends React.Component {
       alert("Favor de colocar la contraseña");
       return;
     }
-    //Consulta
 
-    URL_token = URL + '/api/login/?user[email]=' + email +
+    URL_token = URL + '/api/create_account/?user[email]=' + email +
                             '&user[password]=' + password;
     fetch(URL_token, {
       method: 'GET',
@@ -57,9 +44,10 @@ class LoginScreen extends React.Component {
         global.password = password;
         global.id = response.object.id;
 
+        alert("Cuenta creada correctamente");
         this.props.navigation.navigate('Menu');
       } else {
-        alert("Correo o contraseña incorrectos");
+        alert("El correo ha sido tomado o la contraseña es muy corta (6)");
       }
     })
     .catch(error => console.log('fallo la sesion') );
@@ -81,14 +69,14 @@ class LoginScreen extends React.Component {
           <TouchableOpacity onPress={this.validate}
                             style={styles.button}
             >
-          <Text style={styles.button_text}>Iniciar sesión</Text>
+          <Text style={styles.button_text}>Crear cuenta</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.button_container_50} >
-          <TouchableOpacity onPress={() => { this.props.navigation.navigate('CreateAccount'); }}
+          <TouchableOpacity onPress={() => { this.props.navigation.navigate('Login'); }}
                             style={styles.button}
             >
-          <Text style={styles.button_text_small}>Crear Cuenta</Text>
+          <Text style={styles.button_text_small}>Ya tengo cuenta</Text>
           </TouchableOpacity>
         </View>
         <View style={{ height: 60 }} />
@@ -130,7 +118,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 20,
-    backgroundColor: palet1,
+    backgroundColor: palet5,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -145,4 +133,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginScreen
+export default CreateAccount

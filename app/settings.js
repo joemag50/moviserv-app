@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, Image,
+import { StyleSheet,
+         Image,
          KeyboardAvoidingView,
-         Text, View, Button } from 'react-native';
-import RebootButton from './reboot-buttons';
+         Text,
+         View,
+         TouchableOpacity } from 'react-native';
 
 class Settings extends React.Component {
   constructor(props) {
@@ -36,9 +38,12 @@ class Settings extends React.Component {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" >
         <Image style={styles.image} source={require('../assets/logo.jpeg')} />
-        <View style={styles.button} >
-          <Button onPress={this.logout} title="Logout" color="#846997ff"
-            accessibilityLabel="" />
+        <View style={styles.button_container_50} >
+          <TouchableOpacity onPress={this.logout}
+                            style={styles.button}
+            >
+          <Text style={styles.button_text_small}>Logout</Text>
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     );
@@ -48,7 +53,7 @@ class Settings extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4b69a7ff',
+    backgroundColor: palet3,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -57,9 +62,39 @@ const styles = StyleSheet.create({
     width: 300,
     resizeMode: 'contain'
   },
-  button: {
+  input: {
+    height: 50,
+    backgroundColor: white,
+    marginHorizontal: 10,
+    marginVertical: 5,
+    paddingHorizontal: 15,
+    width: '90%',
+    borderRadius: 20,
+  },
+  button_container: {
     marginVertical: 5,
     width: '90%',
+    height: 50,
+  },
+  button_container_50: {
+    marginVertical: 5,
+    width: '60%',
+    height: 50,
+  },
+  button: {
+    borderRadius: 20,
+    backgroundColor: palet1,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_text: {
+    color: white,
+    fontSize: 20,
+  },
+  button_text_small: {
+    color: white,
+    fontSize: 15,
   }
 });
 

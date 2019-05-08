@@ -7,43 +7,28 @@ import { StyleSheet,
          KeyboardAvoidingView,
          TouchableOpacity } from 'react-native';
 
-global.URL = 'https://moviserv-web.herokuapp.com/';
-
-global.palet1 = '#47B398'
-global.palet2 = '#748B91'
-global.palet3 = '#4B69A7'
-global.palet4 = '#706C91'
-global.palet5 = '#846997'
-
-global.white = '#FFFFFF'
-global.black = '#000000'
-
-class LoginScreen extends React.Component {
+class ChatNuevo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      chat_email: '',
     };
   }
 
+  componentWillUnmount() {
+    this.isUnmounted = true;
+  }
+
   validate = () => {
-    //this.props.navigation.navigate('Menu');
-    //return;
-    
-    const { email, password }  = this.state ;
-    if (email.length == 0) {
+    const { chat_email }  = this.state ;
+    if (chat_email.length == 0) {
       alert("Favor de colocar un email válido");
       return;
     }
-    if (password.length == 0) {
-      alert("Favor de colocar la contraseña");
-      return;
-    }
-    //Consulta
 
-    URL_token = URL + '/api/login/?user[email]=' + email +
-                            '&user[password]=' + password;
+    URL_token = URL + '/api_chat/new_chat/?user[email]=' + email +
+                            '&user[password]=' + password +
+                            '&chat[email]=' + chat_email;
     fetch(URL_token, {
       method: 'GET',
       headers:{
@@ -53,13 +38,16 @@ class LoginScreen extends React.Component {
     .then((response) => {
       if (response.result)
       {
-        global.email = email;
-        global.password = password;
-        global.id = response.object.id;
+        if (this.isUnmounted) {
+          return;
+        }
 
-        this.props.navigation.navigate('Menu');
+        global.chat_id = response.object.chat_id;
+        global.chat_email = chat_email;
+        this.props.navigation.navigate('ChatConversation');
+
       } else {
-        alert("Correo o contraseña incorrectos");
+        alert(response.object);
       }
     })
     .catch(error => console.log('fallo la sesion') );
@@ -71,24 +59,25 @@ class LoginScreen extends React.Component {
       <KeyboardAvoidingView style={styles.container} behavior="padding" >
         <Image style={styles.image} source={require('../assets/logo.jpeg')} />
         <TextInput placeholder="Email" style={styles.input}
-                   onChangeText={(email) => this.setState({email})}
-                   value={this.state.email}
+                   onChangeText={(chat_email) => this.setState({chat_email})}
+                   value={this.state.chat_email}
                    keyboardType="email-address"/>
-        <TextInput placeholder="Password" style={styles.input}
-                   onChangeText={(password) => this.setState({password})}
-                   value={this.state.password} secureTextEntry={true} />
+
         <View style={styles.button_container} >
           <TouchableOpacity onPress={this.validate}
                             style={styles.button}
             >
-          <Text style={styles.button_text}>Iniciar sesión</Text>
+          <Text style={styles.button_text}>Crear chat</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.button_container_50} >
-          <TouchableOpacity onPress={() => { this.props.navigation.navigate('CreateAccount'); }}
+          <TouchableOpacity onPress={() => {
+                            this.props.navigation.navigate('ChatMenu');
+                            return;
+                          }}
                             style={styles.button}
             >
-          <Text style={styles.button_text_small}>Crear Cuenta</Text>
+          <Text style={styles.button_text_small}>Chats</Text>
           </TouchableOpacity>
         </View>
         <View style={{ height: 60 }} />
@@ -145,4 +134,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginScreen
+export default ChatNuevo

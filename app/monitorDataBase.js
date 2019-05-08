@@ -8,22 +8,22 @@ class MonitorDataBase extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      disks: []
+      servers: [],
     };
   }
 
-  componentDidUpdate() {
-    this.getDiskInfo();
-  }
+  //componentDidUpdate() {
+  //  this.getDbInfo();
+  //}
 
   componentDidMount() {
-    this.getDiskInfo();
+    this.getDbInfo();
   }
 
-  getDiskInfo = () => {
-    URL_token = URL + '/api/disk/?user[email]=' + email +
-                            '&user[password]=' + password + 
-                             '&server[user_id]=' + id;
+  getDbInfo = () => {
+    URL_token = URL + '/api/databases_index?user[email]=' + email +
+                                          '&user[password]=' + password;
+
     fetch(URL_token, {
       method: 'GET',
       headers:{
@@ -33,9 +33,7 @@ class MonitorDataBase extends React.Component {
     .then((response) => {
       if (response.result)
       {
-        this.setState({ disks: response.object })
-      } else {
-
+        this.setState({ servers: response.object })
       }
     })
     .catch(error => console.log('fallo la sesion') );
@@ -44,14 +42,23 @@ class MonitorDataBase extends React.Component {
   render() {
     var itemList = [];
 
-    this.state.disks.forEach(function (object) {
+    this.state.servers.forEach(function (object) {
       itemList.push(
-        <DiskText name={ object.name }
-                 total={ object.total }
-                 available={ object.avalible }
-                 unused={ object.unused }
-                 key={object.name} >
-        </DiskText>
+        <View key={object.id}>
+          <Text>
+          {object.server_name}
+          </Text>
+          <Text>
+          {object.name}
+          </Text>
+          <View
+            style={{
+              borderBottomColor: 'black',
+              borderBottomWidth: 1,
+              width: '100%',
+            }}
+          />
+        </View>
       );
     }.bind(this));
 
