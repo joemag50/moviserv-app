@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyleSheet, Image,
+import { StyleSheet,
+         Image,
          ScrollView,
-         Text, View, Button } from 'react-native';
-import DiskText from './disk-text';
+         Text,
+         View,
+         Button } from 'react-native';
+import Footer from './footer';
+import DbInfo from './db_info';
 
 class MonitorDataBase extends React.Component {
   constructor(props) {
@@ -11,10 +15,6 @@ class MonitorDataBase extends React.Component {
       servers: [],
     };
   }
-
-  //componentDidUpdate() {
-  //  this.getDbInfo();
-  //}
 
   componentDidMount() {
     this.getDbInfo();
@@ -44,76 +44,72 @@ class MonitorDataBase extends React.Component {
 
     this.state.servers.forEach(function (object) {
       itemList.push(
-        <View key={object.id}>
-          <Text>
-          {object.server_name}
-          </Text>
-          <Text>
-          {object.name}
-          </Text>
-          <View
-            style={{
-              borderBottomColor: 'black',
-              borderBottomWidth: 1,
-              width: '100%',
-            }}
-          />
-        </View>
+        <DbInfo key={object.id} object={object} />
       );
     }.bind(this));
 
     return (
       <View style={styles.container}>
-        <View style={styles.top} >
-          <ScrollView style={styles.scrollcontainer} >
-            {itemList}
-          </ScrollView>
+        <View style={styles.top_container}>
+          <Text style={styles.button_text}>
+          Data Bases
+          </Text>
         </View>
-        <View style={styles.bottom}>
-          <Image style={styles.image} source={require('../assets/logo.jpeg')} />
-        </View>
+        <ScrollView style={styles.scrollcontainer} >
+          {itemList}
+        </ScrollView>
+        <Footer />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  scrollcontainer: {
+container: {
     flex: 1,
     backgroundColor: '#4b69a7ff',
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#4b69a7ff',
+    alignItems: 'center',
     justifyContent: 'center',
   },
-  bottom: {
-    width: '100%', 
-    height: 50, 
-    justifyContent: 'center', 
-    alignItems: 'flex-start',
-    position: 'absolute',
-    bottom: 0
+  top_container: {
+    width: '90%',
+    marginTop: 60,
   },
-  top: {
-    width: '100%', 
-    height: '90%', 
-    justifyContent: 'center', 
-    position: 'absolute',
-    top: 30
+  scrollcontainer: {
+    width: '90%',
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 60,
   },
   image: {
-    width: 100,
+    flex: 3,
+    width: 300,
     resizeMode: 'contain'
   },
-  text: {
-    color: '#FFF',
-    paddingTop: 35,
-    fontSize: 25,
+  button_container: {
+    marginVertical: 5,
+    width: '100%',
+    height: 50,
+  },
+  button_container_50: {
+    marginVertical: 5,
+    width: '60%',
+    height: 50,
   },
   button: {
-    marginVertical: 5,
-    width: '90%',
+    borderRadius: 20,
+    backgroundColor: palet2,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button_text: {
+    color: white,
+    fontSize: 20,
+  },
+  button_text_small: {
+    color: white,
+    fontSize: 15,
   },
 });
 

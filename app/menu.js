@@ -33,12 +33,12 @@ const DrawerNavigatorConfig = {
 const AppDrawerNavigation = createDrawerNavigator({
   Home: HomeScreen,
   ChatMenu: ChatMenu,
-  CreateServer: CreateServer,
   Ram: MonitorRam,
   Disk: MonitorDisk,
   Tasks: MonitorTasks,
-  Reboot: MonitorReboot,
   DataBases: MonitorDataBase,
+  CreateServer: CreateServer,
+  Reboot: MonitorReboot,
   Settings: Settings,
 }, DrawerNavigatorConfig);
 
